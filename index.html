@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Filas de Transplantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+        <h2>Estados</h2>
+
+        <div class="state-item">
+            <button class="state-toggle" onclick="toggleState('RJ')">RJ ▼</button>
+            <div id="RJ-list" class="organs-list">
+                <button onclick="loadQueue('RJ','rim')">Rim</button>
+                <button onclick="loadQueue('RJ','figado')">Fígado</button>
+                <button onclick="loadQueue('RJ','coracao')">Coração</button>
+                <button onclick="loadQueue('RJ','pulmao')">Pulmão</button>
+            </div>
+        </div>
+
+        <div class="state-item">
+            <button class="state-toggle" onclick="toggleState('SP')">SP ▼</button>
+            <div id="SP-list" class="organs-list">
+                <button onclick="loadQueue('SP','rim')">Rim</button>
+                <button onclick="loadQueue('SP','figado')">Fígado</button>
+                <button onclick="loadQueue('SP','coracao')">Coração</button>
+                <button onclick="loadQueue('SP','pulmao')">Pulmão</button>
+            </div>
+        </div>
+
+        <div class="state-item">
+            <button class="state-toggle" onclick="toggleState('MG')">MG ▼</button>
+            <div id="MG-list" class="organs-list">
+                <button onclick="loadQueue('MG','rim')">Rim</button>
+                <button onclick="loadQueue('MG','figado')">Fígado</button>
+                <button onclick="loadQueue('MG','coracao')">Coração</button>
+                <button onclick="loadQueue('MG','pulmao')">Pulmão</button>
+            </div>
+        </div>
+
+        <div class="state-item">
+            <button class="state-toggle" onclick="toggleState('ES')">ES ▼</button>
+            <div id="ES-list" class="organs-list">
+                <button onclick="loadQueue('ES','rim')">Rim</button>
+                <button onclick="loadQueue('ES','figado')">Fígado</button>
+                <button onclick="loadQueue('ES','coracao')">Coração</button>
+                <button onclick="loadQueue('ES','pulmao')">Pulmão</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="main">
+        <h1>Sistema de Filas de Transplantes</h1>
+
+        <h2 id="title">Selecione um estado e órgão</h2>
+
+        <div id="content"></div>
+
+        <!-- MODAL DE HISTÓRICO -->
+        <div id="historyModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeHistory()">&times;</span>
+                <h2>Histórico da Fila</h2>
+                <div id="historyContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/state.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/queue.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function toggleState(uf) {
+            const list = document.getElementById(uf + "-list");
+            list.classList.toggle("open");
+        }
+    </script>
+
+</body>
+</html>
