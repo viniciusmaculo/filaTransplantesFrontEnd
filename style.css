@@ -58,7 +58,7 @@ body {
 
 .organs-list {
     display: none;
-    margin-top: 8px;
+    margin-top: px;
     padding-left: 10px;
 }
 
@@ -124,7 +124,7 @@ h2 {
 }
 
 .global-actions {
-    margin-top: 20px;
+    margin: 20px;
     text-align: center;
 }
 

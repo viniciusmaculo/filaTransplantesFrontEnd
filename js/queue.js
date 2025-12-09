@@ -5,6 +5,15 @@ function renderQueue(data) {
     const div = document.getElementById("content");
     let html = "";
 
+        // Botões gerais da fila
+    html += `
+        <div class="global-actions">
+            <button onclick="openInNewTab('${apiUrl}')">Ver API</button>
+            <button onclick="openHistory()">Histórico</button>
+            <button onclick="validateTx('${latestTx}')">Validar no BigchainDB</button>
+        </div>
+    `;
+
     // Caso a fila esteja vazia
     if (!data.metadata || !data.metadata.fila || data.metadata.fila.length === 0) {
         html += `<p><b>A fila está vazia.</b></p>`;
@@ -20,15 +29,6 @@ function renderQueue(data) {
             `;
         });
     }
-
-    // Botões gerais da fila
-    html += `
-        <div class="global-actions">
-            <button onclick="openInNewTab('${apiUrl}')">Ver API</button>
-            <button onclick="openHistory()">Histórico</button>
-            <button onclick="validateTx('${latestTx}')">Validar no BigchainDB</button>
-        </div>
-    `;
 
     div.innerHTML = html;
 }
