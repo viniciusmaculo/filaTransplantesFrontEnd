@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin – Filas de Transplantes</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<aside id="sidebar">
+    <h2>Admin</h2>
+
+    <div class="state-item">
+        <button class="state-toggle" onclick="toggleState('RJ')">RJ ▼</button>
+        <div id="RJ-list" class="organs-list">
+            <button onclick="selectQueue('RJ','rim')">Rim</button>
+            <button onclick="selectQueue('RJ','figado')">Fígado</button>
+            <button onclick="selectQueue('RJ','coracao')">Coração</button>
+            <button onclick="selectQueue('RJ','pulmao')">Pulmão</button>
+        </div>
+    </div>
+
+    <div class="state-item">
+        <button class="state-toggle" onclick="toggleState('SP')">SP ▼</button>
+        <div id="SP-list" class="organs-list">
+            <button onclick="selectQueue('SP','rim')">Rim</button>
+            <button onclick="selectQueue('SP','figado')">Fígado</button>
+            <button onclick="selectQueue('SP','coracao')">Coração</button>
+            <button onclick="selectQueue('SP','pulmao')">Pulmão</button>
+        </div>
+    </div>
+
+    <div class="state-item">
+        <button class="state-toggle" onclick="toggleState('MG')">MG ▼</button>
+        <div id="MG-list" class="organs-list">
+            <button onclick="selectQueue('MG','rim')">Rim</button>
+            <button onclick="selectQueue('MG','figado')">Fígado</button>
+            <button onclick="selectQueue('MG','coracao')">Coração</button>
+            <button onclick="selectQueue('MG','pulmao')">Pulmão</button>
+        </div>
+    </div>
+
+    <div class="state-item">
+        <button class="state-toggle" onclick="toggleState('ES')">ES ▼</button>
+        <div id="ES-list" class="organs-list">
+            <button onclick="selectQueue('ES','rim')">Rim</button>
+            <button onclick="selectQueue('ES','figado')">Fígado</button>
+            <button onclick="selectQueue('ES','coracao')">Coração</button>
+            <button onclick="selectQueue('ES','pulmao')">Pulmão</button>
+        </div>
+    </div>
+</aside>
+
+<main id="main">
+    <h1>Painel Administrativo – Filas de Transplantes</h1>
+    <h2 id="title">Selecione um estado e órgão</h2>
+
+    <div id="content"></div>
+</main>
+
+<script src="js/admin-state.js"></script>
+<script src="js/admin-api.js"></script>
+<script src="js/admin-render.js"></script>
+<script src="js/admin-actions.js"></script>
+
+<script>
+function toggleState(uf) {
+    document.getElementById(uf + "-list").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
