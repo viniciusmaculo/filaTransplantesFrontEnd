@@ -8,10 +8,23 @@ async function selectQueue(estado, orgao) {
 
     try {
         const res = await fetch(`${apiBase}/${estado}/${orgao}`);
+
+            if (!res.ok) {
+                renderAdminQueue({
+                    error: true,
+                    message: "Fila não encontrada ou ainda não indexada."
+                });
+                return;
+        }
+
         const data = await res.json();
 
         renderAdminQueue(data);
     } catch {
-        renderAdminQueue(null);
+        console.error(err);
+        renderAdminQueue({
+            error: true,
+            message: "Erro de comunicação com o servidor."
+        });
     }
 }
